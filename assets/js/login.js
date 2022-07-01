@@ -9,8 +9,8 @@ $(document).ready((function(){
         $(".login-box").show()
     })
     //定义layui表单验证的规则
-    var form = layui.form
-    var layer= layui.layer
+    var form = layui.form 
+    var layer = layui.layer
     form.verify({
         pwd: [/^[\S]{6,12}$/,'密码必须6到12位，且不能出现空格'],
         repwd: function(value){
@@ -41,24 +41,23 @@ $(document).ready((function(){
             layer.msg('注册成功，请登录');
             $("#link_login").click()
         })
-    })
-    $("#form_login").submit(function(e){
+    }) 
+     $("#form_login").submit(function(e){
         e.preventDefault();
-        var data = {username: $("#form_login [name=username]").val(),password: $("#form_login [name=password]").val()}
         $.ajax({
             url: '/api/login',
             method: 'POST',
-            data: data,
+            data: $(this).serialize(),
             success: function(res){
                 if(res.status !== 0){
-                    return layer.msg(res.message);
+                    return layer.msg('登录失败');
                 }
                 layer.msg('登录成功');
                 //存储token
-                localStorage.setItem(res.token)
+                localStorage.setItem('token', res.token)
                 //跳转到index页面
-                location.href('/index.html')
+                location.href ='/index.html'
             }
         })
-    })
+    }) 
 })) 
