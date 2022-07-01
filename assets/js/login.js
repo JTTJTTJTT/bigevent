@@ -56,7 +56,7 @@ $(document).ready((function(){
                 //存储token
                 localStorage.setItem('token', res.token)
                 //跳转到index页面
-                location.href ='/index.html'
+                location.href = 'index.html'
             }
         })
     }) 
