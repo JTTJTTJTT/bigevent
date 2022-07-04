@@ -1,4 +1,5 @@
 $(function(){
+    var layer = layui.layer
     getUserInfo()
     function getUserInfo(){
         $.ajax({
@@ -25,7 +26,7 @@ $(function(){
     //渲染用户信息
     function renderAvatar(user){
         //渲染欢迎词
-        var nickName = user.nickName || user.username
+        var nickName = user.nickname || user.username
         $("#welcome").html('你好&nbsp;&nbsp;'+nickName)
 
         //渲染头像
@@ -42,7 +43,7 @@ $(function(){
 
     //退出功能
     $("#logout").on('click',function(){
-        var layer = layui.layer
+        
         layer.confirm('确定退出？', {icon: 3, title:'提示'}, function(index){
             //点击确定
             localStorage.removeItem('token')
