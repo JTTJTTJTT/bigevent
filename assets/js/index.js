@@ -1,6 +1,4 @@
-$(function(){
-    var layer = layui.layer
-    getUserInfo()
+//渲染用户信息
     function getUserInfo(){
         $.ajax({
             method: 'GET',
@@ -23,7 +21,8 @@ $(function(){
             } */
         })
     }
-    //渲染用户信息
+
+     
     function renderAvatar(user){
         //渲染欢迎词
         var nickName = user.nickname || user.username
@@ -40,6 +39,11 @@ $(function(){
             $(".text-avatar").html(first).show()
         }
     }
+$(function(){
+    var layer = layui.layer
+    getUserInfo()
+   
+    
 
     //退出功能
     $("#logout").on('click',function(){
