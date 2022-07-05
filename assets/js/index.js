@@ -42,9 +42,6 @@
 $(function(){
     var layer = layui.layer
     getUserInfo()
-   
-    
-
     //退出功能
     $("#logout").on('click',function(){
         
